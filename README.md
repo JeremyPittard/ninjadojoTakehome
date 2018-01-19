@@ -15,10 +15,12 @@ files are organised for both development and distribution as you can see in the 
 #Extra points questions
 
 Describe the difference between padding & margin
+
   Padding is what surrounds the content of an element within its borders,
    where margin is the space outside an elements border.
    
 In your own words describe the css3 box model
+
   before styling all elements are rendered as a box. the box consists of 
   content, padding, border and margin,(innermost -> outermost) each of these are able to be styled to
   get a desired look. 
@@ -28,6 +30,7 @@ In your own words describe the css3 box model
   margin is the area around an elements border, it is transparent and used for positioning,
   
 How to vertically center a h1 inside a div
+
   div {
   display:flex;
   align-items: center; 
