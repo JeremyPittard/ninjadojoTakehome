@@ -1,0 +1,478 @@
+@import 'variables';
+@import 'mixins';
+
+//////////////////////////////////////////Font /////////////////////////////////////////////
+
+//////////////////////////////////////////generic styles////////////////////////////////////
+
+body {
+background:#fff;
+margin: 0;
+padding: 0;
+color: $blackText;
+font-family: "Helvetica Neue", Helvetica, arial, sans-serif; 
+//standard font on macs, but no other devices so fallback onto helvetica
+line-height: 1.5;
+font-weight: 600;
+}
+
+a, a:hover, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.container {
+	@include contentWrapper;
+}
+
+button, .submit-button{
+	border: 2px solid #fff;
+	border-radius: $rounding;
+	background: transparent;
+	color: $pinkText;
+	border: 3px solid $pinkText;
+	font-weight: bold;
+	font-size: 1.1rem;
+	min-width: 35%;
+	padding: 5px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
+	
+}
+
+.button-white {
+	color:$pinkText;
+	background: #fff;
+	border: #fff;
+	&:hover {
+		transform: scale(1.05);
+		background:transparent;
+		border: 2px solid #fff;
+		color:#fff;
+	}
+	
+}
+
+.button-trans {
+	background: transparent;
+	border-color: #fff;
+	color: #fff;
+	&:hover {
+		background: #fff;
+		color: $pinkText;
+		transform: scale(1.08);
+	}
+
+}
+
+.anchor {
+	visibility: hidden;
+	height: 5vh;
+	margin-top: 5vh;
+
+}
+
+
+
+////////////////////////////////////////styled classes in order of scroll////////////////////
+
+.wrapper {
+	@include theWrap;
+}
+//////////////menu
+.menu {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	z-index: 999;
+	width: 100%;
+	height: 10vh;
+	background: #fff;
+	box-shadow: 0 1px 15px -2px
+	rgba(0,0,0,1);
+
+}
+
+	.menuWrap {
+		@include menuContainer;
+		display: flex;
+		align-items: center;
+	}
+		
+	.companyName {
+		
+		color:$pinkText;
+		flex-grow: 3;
+		&:hover {
+			color:$blackText;
+		}
+	}
+
+	
+	.menuItem {
+	color:$blackText;	
+	transition: all 0.2s linear;
+	width: 8vw;
+	text-align: center;
+	margin-right: 1px solid transparent;
+	&:hover {
+		color:$pinkText;		
+	}		
+	}
+
+	
+
+
+
+///////////////content
+
+.section {
+	
+	@include pageSection(100vh);	
+}
+#landing {
+background: linear-gradient(to right,$pink, $yellow 95%);
+color: #fff;
+display:flex;
+flex-direction: column;
+	.heading {
+		margin: 35vh 0 0 0;
+	}
+	h1, {
+		font-size: 4.2rem;
+		margin-bottom: 0;
+	}
+	h2 {
+		margin-top: 1%;
+		font-size: 2.5rem;
+	}
+	.landingButtons {
+		@include muscles(row);
+		justify-content: space-between;	
+	}	
+}
+
+.aboutSection {
+	@include pageSection(40vh);
+	padding-top: 30px;
+	text-align: left;
+	h3 {
+		color: $pinkText;
+		margin-left: 5%;		
+	}
+	.aboutContent {
+		@include muscles(row);
+		justify-content: center;
+		padding-bottom: 3%;		
+		p {
+			padding: 0 5%;	
+			width: 50%;
+		
+		}
+	}
+	&:after {
+		content:"";
+		height:1vh;
+		width:100%;
+		background: linear-gradient(to right, $pink , $yellow 95%);
+		display: block;
+	}
+}
+
+.products {
+	.container {
+	padding: 0 0 5vh 0;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: left;
+	h2 {
+		color: $pinkText;
+		margin-top:0;
+	}
+	img {
+		width: 58%;
+		height: 45vh;
+		margin: 0% auto;
+		border-radius: $rounding;
+		
+	}
+	.prodOne, .prodTwo{
+		margin: 0 auto 5% auto;
+		width: 450px;
+		height: 45%;
+
+		
+		button{
+			width: 45%;
+			display: block;
+			margin: 10% auto 0 auto;
+			
+			&:hover {
+				background: $pinkText;
+				color: #fff;
+				transform: scale(1.08);
+			}
+			
+				}
+				
+}
+	}
+}
+
+.contact {
+	background: $contactBack;
+}
+
+.contactForm{
+	background: #fff;
+	width: 50%;
+	margin: 7vh auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid $grey;
+	border-radius: $rounding;
+	box-shadow: 5px 5px 6px -6px;
+	h2 {
+		color: $pinkText;
+	}
+	.contactItem {
+		width: 80%;
+		padding: 5px;
+		margin: 10px auto;
+		border-radius: $rounding;
+		border: 1px solid $grey;
+		&:focus {
+			outline-color: $pinkText;
+		}
+	}
+
+
+	.submit-button {
+		background: $pinkText;
+		color: #fff;
+		width: 35%;
+		margin: 20px 50px ;
+		align-self: flex-end;
+
+	}
+
+	textarea {
+		height: 30vh;
+		resize: none;
+	}
+}
+
+footer {
+	width: 100%;
+	background: #fff;
+}
+
+.footWrap {
+	@include menuContainer;
+	display: flex;
+	h1 {
+		color: $pinkText;
+	}
+	.footItem {
+	margin: 0 auto;
+	}
+
+}
+
+////////////////////////////////////for mobile menu////////////////////////////////////////
+
+#burger {
+	display: none;
+	width: 45px;
+	height: 40px;
+	z-index: 1001;
+	position: fixed;
+	top: 3vh;
+	right: 5vw;
+	transition: 0.3s;
+	span {
+		display: block;
+		width: 100%;
+		height: 6px;
+		background: $blackText;
+		border-radius: $rounding;
+		margin: 4px 0 ;
+		transition: 0.5s;
+		cursor: pointer;
+		
+
+		}
+
+}
+
+
+
+/* The Overlay (background) */
+.overlay {
+       
+    height: 0;
+    width: 100%;
+    position: fixed; 
+	z-index: 1000;
+	border-radius: 0 0 50% 50%; 
+    left: 0;
+    top: 0;
+	background-color: $pinkText;  
+	overflow: hidden;
+    transition: 0.5s; 
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+	overflow: hidden;
+    position: relative;
+    top: 5%; 
+    width: 100%; 
+    text-align: center; 
+	margin-top: 30px; 
+	
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #fff;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+	
+
+
+///////////////////////////////////////////breakpoints//////////////////////////////////////
+@media screen and (max-width: 767px) {
+
+	.container {
+		max-width:80%;
+	}
+
+	.menu {
+		height: 10vh;		
+	}
+
+	#burger {
+		display: block;
+	}
+
+	
+
+	.menuWrap {
+		padding: 0 3vw;
+	}
+
+	.menuItem {
+		display: none;
+	}
+
+	#landing {
+		.landingButtons{
+			flex-direction: column;
+			margin: 0 auto;
+			button {
+				margin: 20px auto;
+				width: 50%;
+			}
+		}
+	}
+
+	.aboutSection {
+		
+		h3 {
+			text-align: center;
+		
+		}
+		.aboutContent {
+		flex-direction: column;
+		p {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+	}
+
+	.footWrap {
+		flex-direction: column;
+		padding: 20px 0;
+	}
+
+	
+
+
+}
+
+@media screen and (max-width: 1280px) {
+	.container {
+		max-width: 1000px;
+	}
+	.menu {
+		height: 13vh;
+	}
+
+	.menuItem {
+		width: 20%;
+	}
+
+	
+	.menuWrap {
+		max-width:90%;
+	}
+
+	.products .container {
+		
+
+		img {
+			width: 100%;
+		}
+		h2 {
+			text-align: center;
+		}
+
+		
+
+		.productOneImg {
+			order:1;
+		}
+
+		.prodOne {
+			order: 2;
+			max-width: 90%;
+		}
+		
+		.productTwoImg{
+			order: 3;
+		}
+
+		.prodTwo {
+			order: 4;
+			max-width: 90%;
+
+		}
+
+	}
+	
+
+	.contact .container {
+		max-width: 100%;
+	}
+	.contactForm {
+		width:95%;
+		.contactItem{
+			padding: 15px;
+		}
+		.submit-button {
+			margin:20px auto;
+		}
+		
+	}
+
+}
+	

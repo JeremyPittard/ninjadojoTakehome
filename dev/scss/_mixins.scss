@@ -1,0 +1,47 @@
+@mixin pageSection($sectionheight) {
+	
+	min-height: $sectionheight;
+	width:100vw;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+}
+
+@mixin theWrap() {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+			flex-direction: column;
+	justify-content: space-between;	
+}
+
+
+@mixin muscles ($dir) {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: $dir;
+	    -ms-flex-direction: $dir;
+	        flex-direction: $dir;
+}
+
+@mixin menuContainer() {
+	width:100%;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+@mixin contentWrapper() {
+	max-width:1200px;
+	margin: 0 auto;
+}
